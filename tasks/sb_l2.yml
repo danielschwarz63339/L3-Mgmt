@@ -1,8 +1,7 @@
 --- 
 - name: Adding Vlans
-  nxos_vlans:
-    config:
-    - vlan_id: "{{ vlans.vlan_id }}"
-      name: "{{ vlans.description }}"
-    state: merged
+  nxos_vlan:
+    vlan_id: "{{ vlans.vlan_id }}"
+    name: "{{ vlans.description }}"
+    state: present
 ...
