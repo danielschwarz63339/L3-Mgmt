@@ -4,6 +4,5 @@
     config:
     - vlan_id: "{{ vlans.vlan_id }}"
       name: "{{ vlans.description }}"
-      enabled: true
       state: active
 ...
