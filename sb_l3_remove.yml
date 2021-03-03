@@ -14,8 +14,7 @@
     - NXOS5
     - NXOS6
   tasks:
-    - name: Remove L3 Interface
-      nxos_config:
+    - nxos_config:
         lines:
         - no interface Vlan{{ vlans.vlan_id }}
     
