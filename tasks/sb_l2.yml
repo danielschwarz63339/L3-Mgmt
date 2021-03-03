@@ -3,6 +3,6 @@
   nxos_vlans:
     config:
     - vlan_id: "{{ vlans.vlan_id }}"
-      name: {{ vlans.description }}
+      name: "{{ vlans.description }}"
     state: merged
 ...
