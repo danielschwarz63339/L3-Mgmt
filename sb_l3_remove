@@ -1,0 +1,30 @@
+---
+- name:
+  gather_facts: no
+  hosts: nxos
+  tasks:
+    - include_vars: 
+        file: "./vars/l3_remove.yml"
+        
+- name: Remove L3 Interface on all Routers
+  gather_facts: no
+  hosts: 
+    - NXOS3
+    - NXOS4
+    - NXOS5
+    - NXOS6
+  tasks:
+    - name: NXOS3 Config (incl. L3 Interface)
+      nxos_command:
+        commands:
+        - configure terminal
+        - no interface vlan{{ vlans.vlan_id }}
+
+- name: Removing Vlans
+  gather_facts: no
+  hosts: nxos
+  tasks:
+    - nxos_vlan:
+        vlan_id: "{{ vlans.vlan_id }}"
+        state: absent
+...
