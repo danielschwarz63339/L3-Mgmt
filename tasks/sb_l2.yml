@@ -4,5 +4,5 @@
     config:
     - vlan_id: "{{ vlans.vlan_id }}"
       name: "{{ vlans.description }}"
-      state: active
+    state: merged
 ...
