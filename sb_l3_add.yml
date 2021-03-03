@@ -41,4 +41,11 @@
     - name: NXOS6 Config (incl. L3 Interface)
       include: "./tasks/nxos6_l3.yml"
 
+- name: Preempt
+  gather_facts: no
+  hosts: NXOS3
+  tasks:
+    - name: NXOS3 preempt
+      include: "./tasks/Preempt.yml"
+
 ...
