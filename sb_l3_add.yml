@@ -27,17 +27,17 @@
     - name: NXOS4 Config (incl. L3 Interface)
       include: "./tasks/nxos4_l3.yml"
 
-- name: Configuration of NXOS5
-  gather_facts: no
-  hosts: NXOS5
-  tasks:
-    - name: NXOS5 Config (incl. L3 Interface)
-      include: "./tasks/nxos5_l3.yml"
-
-- name: Configuration of NXOS6
-  gather_facts: no
-  hosts: NXOS6
-  tasks:
-    - name: NXOS6 Config (incl. L3 Interface)
-      include: "./tasks/nxos6_l3.yml"
+#- name: Configuration of NXOS5
+#  gather_facts: no
+#  hosts: NXOS5
+#  tasks:
+#    - name: NXOS5 Config (incl. L3 Interface)
+#      include: "./tasks/nxos5_l3.yml"
+#
+#- name: Configuration of NXOS6
+#  gather_facts: no
+#  hosts: NXOS6
+#  tasks:
+#    - name: NXOS6 Config (incl. L3 Interface)
+#      include: "./tasks/nxos6_l3.yml"
 ...
