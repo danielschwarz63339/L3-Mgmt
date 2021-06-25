@@ -1,0 +1,15 @@
+---
+- name:
+  gather_facts: no
+  hosts: nxos
+  tasks:
+    - include_vars: 
+        file: "./vars/l3_add.yml"
+        
+- name: Configuration of Vlan on all Devices
+  gather_facts: no
+  hosts: nxos
+  tasks:
+    - name: Configuration of Vlan
+      include: "./tasks/sb_l2.yml"
+...
