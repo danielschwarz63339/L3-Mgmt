@@ -5,10 +5,10 @@ nxos:
       ansible_host: 192.168.0.180
     NXOS4:
       ansible_host: 192.168.0.181
-    NXOS5:
-      ansible_host: 192.168.0.182
-    NXOS6:
-      ansible_host: 192.168.0.183
+    #NXOS5:
+    #  ansible_host: 192.168.0.182
+    #NXOS6:
+    #  ansible_host: 192.168.0.183
   vars:
     ansible_network_os: nxos
     ansible_user: admin
