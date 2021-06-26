@@ -1,6 +1,5 @@
 
 ---
-
 - name: Removing Vlans
   gather_facts: no
   hosts: all
