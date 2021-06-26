@@ -4,5 +4,5 @@
   hosts: all
   tasks:
      - name: Configuration of Vlan
-      include: "./tasks/sb_l2_remove.yml"
+       include: "./tasks/sb_l2_remove.yml"
 ...
