@@ -16,7 +16,8 @@
   gather_facts: no
   hosts: all
   tasks:
-    - nxos_vlan:
-        vlan_id: "{{ vlan_id }}"
-        state: absent
+    - nxos_vlans:
+        config:
+        - vlan_id: "{{ vlan_id }}"
+        state: deleted
 ...
