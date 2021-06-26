@@ -16,4 +16,14 @@
     interface: Vlan{{ vlan_id }}
     preempt: enabled
     version: '2'
+
+- name: Configure Preempt delay
+  nxos_command:
+    commands:
+    - configure terminal
+    - interface Vlan{{ vlan_id }}
+    - hsrp "{{ hsrp_grp }}"
+    - preempt delay minimum 120
+    - end
+    - copy running-config startup-config
 ...
