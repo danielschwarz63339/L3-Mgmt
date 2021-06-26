@@ -1,14 +1,9 @@
 
 ---
-- name:
-  gather_facts: no
-  hosts: nxos
-  tasks:
-        
-    
+
 - name: Removing Vlans
   gather_facts: no
-  hosts: nxos
+  hosts: all
   tasks:
     - nxos_vlan:
         vlan_id: "{{ vlan_id }}"
