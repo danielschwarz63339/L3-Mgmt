@@ -1,8 +1,11 @@
 ---
+
 - name: Removing Vlans
   gather_facts: no
   hosts: all
   tasks:
-    - name: Configuration of Vlan
-      include: "./tasks/sb_l2_remove.yml"
+    - nxos_vlans:
+        config:
+        - vlan_id: "{{ vlan_id }}"
+        state: deleted
 ...
