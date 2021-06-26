@@ -1,7 +1,7 @@
 --- 
 - name: Adding Vlans
   nxos_vlan:
-    vlan_id: "{{ vlans.vlan_id }}"
-    name: "{{ vlans.description }}"
+    vlan_id: "{{ vlan_id }}"
+    name: "{{ description }}"
     state: present
 ...
