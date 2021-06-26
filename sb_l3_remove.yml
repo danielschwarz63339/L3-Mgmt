@@ -1,5 +1,4 @@
 ---
-
 - name: Remove L3 Interface on all Routers
   gather_facts: no
   hosts: router
