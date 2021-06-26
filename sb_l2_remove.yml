@@ -3,6 +3,6 @@
   gather_facts: no
   hosts: all
   tasks:
-     - name: Configuration of Vlan
-       include: "./tasks/sb_l2_remove.yml"
+    - name: Configuration of Vlan
+      include: "./tasks/sb_l2_remove.yml"
 ...
