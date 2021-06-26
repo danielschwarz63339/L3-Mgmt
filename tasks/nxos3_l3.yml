@@ -6,7 +6,7 @@
     - vrf member {{ vrf }}
     - ip address {{ NXOS3_ip }} tag {{ vrf }}
     - no shutdown
-    parents: interface Vlan{{ vlans.vlan_id }}
+    parents: interface Vlan{{ vlan_id }}
 
 - name: Configure HSRP
   nxos_hsrp:
