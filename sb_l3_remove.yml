@@ -2,11 +2,7 @@
 
 - name: Remove L3 Interface on all Routers
   gather_facts: no
-  hosts: 
-    - NXOS3
-    - NXOS4
-    - NXOS5
-    - NXOS6
+  hosts: router
   tasks:
     - nxos_config:
         lines:
