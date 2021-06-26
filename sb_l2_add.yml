@@ -3,8 +3,7 @@
   gather_facts: no
   hosts: nxos
   tasks:
-    #- include_vars: 
-    #    file: "./vars/l3_add.yml"
+
         
 - name: Configuration of Vlan on all Devices
   gather_facts: no
