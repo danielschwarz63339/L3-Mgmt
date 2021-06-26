@@ -1,9 +1,5 @@
 ---
-- name:
-  gather_facts: no
-  hosts: nxos
-  tasks:
-        
+
 - name: Remove L3 Interface on all Routers
   gather_facts: no
   hosts: 
@@ -18,7 +14,7 @@
     
 - name: Removing Vlans
   gather_facts: no
-  hosts: nxos
+  hosts: all
   tasks:
     - nxos_vlan:
         vlan_id: "{{ vlan_id }}"
