@@ -17,8 +17,6 @@
   tasks:
     - name: NXOS3 L3
       include: "./tasks/nxos3_l3.yml"
-    - name: NXOS3 HSRP
-      include: "./tasks/nxos3_hsrp.yml"
 
 - name: Configuration of NXOS4
   gather_facts: no
