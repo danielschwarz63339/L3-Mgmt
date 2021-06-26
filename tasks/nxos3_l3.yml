@@ -12,8 +12,8 @@
   nxos_hsrp:
     group: "{{ hsrp_grp }}"
     vip: "{{ hsrp_ip }}"
-    priority: 250
+    priority: '250'
     interface: Vlan{{ vlan_id }}
     preempt: enabled
-    version: 2
+    version: '2'
 ...
