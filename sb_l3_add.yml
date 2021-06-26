@@ -1,9 +1,4 @@
 ---
-- name:
-  gather_facts: no
-  hosts: nxos
-  tasks:
-        
 - name: Configuration of Vlan on all Devices
   gather_facts: no
   hosts: nxos
