@@ -1,6 +1,7 @@
-      
-      
-      - nxos_vlans:
-        config:
-        - vlan_id: "{{ vlan_id }}"
-        state: deleted
+--- 
+- name: Adding Vlans
+  nxos_vlans:
+    config:
+    - vlan_id: "{{ vlan_id }}"
+    state: deleted
+...   
