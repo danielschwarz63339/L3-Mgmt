@@ -1,10 +1,11 @@
+
 --- 
 - name: Configure L3 Interface
   nxos_config:
     lines:
     - description {{ description }}
     - vrf member {{ vrf }}
-    - ip address {{ NXOS6_ip }} tag {{ vrf }}
+    - ip address {{ NXOS6_ip }}{{ prefix }} tag {{ vrf }}
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
 
@@ -12,8 +13,8 @@
   nxos_hsrp:
     group: "{{ hsrp_grp }}"
     vip: "{{ hsrp_ip }}"
-    priority: 200
+    priority: '200'
     interface: Vlan{{ vlan_id }}
     preempt: disabled
-    version: 2
+    version: '2'
 ...
