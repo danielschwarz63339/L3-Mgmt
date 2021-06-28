@@ -4,7 +4,7 @@
     lines:
     - description {{ description }}
     - vrf member {{ vrf }}
-    - ip address {{ NXOS5_ip }} tag {{ vrf }}
+    - ip address {{ NXOS5_ip }}{{ prefix }} tag {{ vrf }}
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
 
@@ -12,8 +12,18 @@
   nxos_hsrp:
     group: "{{ hsrp_grp }}"
     vip: "{{ hsrp_ip }}"
-    priority: 250
+    priority: '250'
     interface: Vlan{{ vlan_id }}
     preempt: enabled
-    version: 2
+    version: '2'
+
+- name: Configure Preempt delay
+  nxos_command:
+    commands:
+    - configure terminal
+    - interface Vlan{{ vlan_id }}
+    - hsrp {{ hsrp_grp }}
+    - preempt delay minimum 120
+    - end
+    - copy running-config startup-config
 ...
