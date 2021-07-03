@@ -1,0 +1,8 @@
+---
+- name: Add static Route
+  gather_facts: no
+  hosts: router
+  tasks:
+    - name: Config of static routes
+      include: "./tasks/static.yml"
+...
