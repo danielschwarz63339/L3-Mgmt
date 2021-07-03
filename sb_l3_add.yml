@@ -6,31 +6,17 @@
     - name: Configuration of Vlan
       include: "./tasks/sb_l2.yml"
 
-- name: Configuration of NXOS3
+- name: Configuration of R1
   gather_facts: no
-  hosts: NXOS3
+  hosts: R1
   tasks:
-    - name: NXOS3 L3
-      include: "./tasks/nxos3_l3.yml"
+    - name: R1 Config (incl. L3 Interface)
+      include: "./tasks/r1_l3.yml"
 
-- name: Configuration of NXOS4
+- name: Configuration of R2
   gather_facts: no
-  hosts: NXOS4
+  hosts: R2
   tasks:
-    - name: NXOS4 Config (incl. L3 Interface)
-      include: "./tasks/nxos4_l3.yml"
-
-#- name: Configuration of NXOS5
-#  gather_facts: no
-#  hosts: NXOS5
-#  tasks:
-#    - name: NXOS5 Config (incl. L3 Interface)
-#      include: "./tasks/nxos5_l3.yml"
-#
-#- name: Configuration of NXOS6
-#  gather_facts: no
-#  hosts: NXOS6
-#  tasks:
-#    - name: NXOS6 Config (incl. L3 Interface)
-#      include: "./tasks/nxos6_l3.yml"
+    - name: R2 Config (incl. L3 Interface)
+      include: "./tasks/r2_l3.yml"
 ...
