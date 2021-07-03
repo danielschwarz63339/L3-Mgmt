@@ -1,7 +1,6 @@
 ---
 - name: Add static Route
-  collections:
-  - name: cisco.nxos  
+  collections: cisco.nxos  
   gather_facts: no
   hosts: router
   tasks:
