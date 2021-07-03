@@ -21,8 +21,8 @@
       include: "./tasks/r2_l3.yml"
 
 - name: Add static Route
-  # collections: 
-  #   - cisco.nxos  
+  collections: 
+    - cisco.nxos  
   gather_facts: no
   hosts: router
   tasks:
