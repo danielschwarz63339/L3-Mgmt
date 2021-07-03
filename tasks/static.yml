@@ -1,11 +1,4 @@
 ---
-#- nxos_static_route:
-#    prefix: "{{ route }}"
-#    next_hop: "{{ route_nh }}"
-#    route_name: "{{ route_name }}"
-#    vrf: "{{ vrf }}"
-#    tag:  "{{ vrf }}"
-  
 - nxos_static_routes:
     config:
     - vrf: "{{ vrf }}"
