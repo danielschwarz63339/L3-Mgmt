@@ -5,7 +5,9 @@
 #    route_name: "{{ route_name }}"
 #    vrf: "{{ vrf }}"
 #    tag:  "{{ vrf }}"
-
+collections:
+  - name: cisco.nxos
+  
 - name: Merge new static route configuration
   nxos_static_routes:
     config:
