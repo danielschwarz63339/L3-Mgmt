@@ -2,14 +2,14 @@
 - name: Merge new static route configuration
   nxos_static_routes:
     config:
-    - vrf: {{ vrf }}
+    - vrf: "{{ vrf }}"
       address_families:
       - afi: ipv4
         routes:
-        - dest: {{ route }}
+        - dest: "{{ route }}"
           next_hops:
-          - forward_router_address: {{ route_nh }}
-            route_name: {{ route_name }}
-            tag: {{ vrf }}
+          - forward_router_address: "{{ route_nh }}"
+            route_name: "{{ route_name }}"
+            tag: "{{ vrf }}"
     state: merged
 ...
