@@ -4,7 +4,7 @@
     lines:
     - description {{ description }}
     - vrf member {{ vrf }}
-    - ip address {{ NXOS4_ip }}{{ prefix }} tag {{ vrf }}
+    - ip address {{ r1_ip }}{{ prefix }} tag {{ vrf }}
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
 
