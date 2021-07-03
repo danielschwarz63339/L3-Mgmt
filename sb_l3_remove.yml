@@ -7,12 +7,10 @@
         lines:
         - no interface Vlan{{ vlan_id }}
     
-- name: Removing Vlans
+- name: Remove Vlans
   gather_facts: no
   hosts: all
   tasks:
-    - nxos_vlans:
-        config:
-        - vlan_id: "{{ vlan_id }}"
-        state: deleted
+    - name: R2 Config (incl. L3 Interface)
+      include: "./tasks/sb_l2_remove.yml"
 ...
