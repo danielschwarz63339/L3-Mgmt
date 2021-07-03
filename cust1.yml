@@ -1,0 +1,31 @@
+---
+- name: Configuration of Vlan on all Devices
+  gather_facts: no
+  hosts: all
+  tasks:
+    - name: Configuration of Vlan
+      include: "./tasks/sb_l2.yml"
+
+- name: Configuration of R1
+  gather_facts: no
+  hosts: R1
+  tasks:
+    - name: R1 Config (incl. L3 Interface)
+      include: "./tasks/r1_l3.yml"
+
+- name: Configuration of R2
+  gather_facts: no
+  hosts: R2
+  tasks:
+    - name: R2 Config (incl. L3 Interface)
+      include: "./tasks/r2_l3.yml"
+
+- name: Add static Route
+  # collections: 
+  #   - cisco.nxos  
+  gather_facts: no
+  hosts: router
+  tasks:
+    - name: Config of static routes
+      include: "./tasks/static.yml"
+...
