@@ -4,14 +4,14 @@
     lines:
     - description {{ description }}
     - vrf member {{ vrf }}
-    - ip address {{ r2_ip }}{{ prefix }} tag {{ vrf }}
+    - ip address {{ network_ip | ipmath(5) }}{{ prefix }} tag {{ vrf }}
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
 
 - name: Configure HSRP
   nxos_hsrp:
     group: "{{ hsrp_grp }}"
-    vip: "{{ hsrp_ip }}"
+    vip: "{{ network_ip | ipmath(1) }}"
     priority: '250'
     interface: Vlan{{ vlan_id }}
     preempt: enabled
