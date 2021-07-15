@@ -10,10 +10,10 @@
 
 - name: Configure HSRP
   nxos_hsrp:
-    group: "{{ hsrp_grp }}"
+    group: "{{ ((vlan_id % 2)*-1)+2 }}"
     vip: "{{ network_ip | ipmath(1) }}"
     priority: '200'
     interface: Vlan{{ vlan_id }}
     preempt: disabled
-    version: '{{ ((vlan_id % 2)*-1)+2 }}'
+    version: '2'
 ...
