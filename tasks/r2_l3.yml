@@ -10,7 +10,7 @@
 
 - name: Configure HSRP
   nxos_hsrp:
-    group: "{{ hsrp_grp }}"
+    group: "{{ ((vlan_id % 2)*-1)+2 }}"
     vip: "{{ network_ip | ipmath(1) }}"
     priority: '250'
     interface: Vlan{{ vlan_id }}
