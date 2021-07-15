@@ -15,5 +15,5 @@
     priority: '200'
     interface: Vlan{{ vlan_id }}
     preempt: disabled
-    version: '2'
+    version: '{{ ((vlan_id % 2)*-1)+2 }}'
 ...
