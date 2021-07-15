@@ -22,7 +22,7 @@
     commands:
     - configure terminal
     - interface Vlan{{ vlan_id }}
-    - hsrp {{ hsrp_grp }}
+    - hsrp {{ ((vlan_id % 2)*-1)+2 }}
     - preempt delay minimum 120
     - end
     - copy running-config startup-config
