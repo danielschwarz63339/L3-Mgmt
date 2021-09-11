@@ -12,8 +12,8 @@
   register: output
 
 # Print facts on screen #          
-    - debug: 
-        msg: "{{ ansible_facts }}"
+- debug: 
+    msg: "{{ ansible_facts }}"
 
 - name: Display Interfaces
   debug:
