@@ -5,7 +5,7 @@
   tasks:
     - name: Add vars
       include_vars:
-        file: "grpcl_2/SW1.yml"
+        file: "{{ Survey_Grpcl }}/SW1.yml"
     - name: SW1 Config 
       include: "./tasks/grpcl_worker.yml"
       
@@ -15,7 +15,7 @@
   tasks:
     - name: Add vars
       include_vars:
-        file: "grpcl_2/SW2.yml"
+        file: "{{ Survey_Grpcl }}/SW2.yml"
     - name: SW2 Config 
       include: "./tasks/grpcl_worker.yml"
 ...
