@@ -7,7 +7,7 @@
 
 - name: Gather Facts
   nxos_facts:
-    gather_subset: all
+    gather_subset: interfaces
   register: output
 
 - debug: var=output
