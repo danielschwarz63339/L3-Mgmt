@@ -1,5 +1,5 @@
 ---
 sw:
-  - int: Ethernet 1/2
-  - int: Ethernet 1/14
+  - int: Ethernet1/2
+  - int: Ethernet1/14
 ...
