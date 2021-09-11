@@ -24,11 +24,16 @@
 - debug: 
     var: output
 
-- name: Display Interfaces
+#- name: Display Interfaces
+#  debug:
+#    var: item.key
+#  when: item.value.description is search("grpcl_1")
+#  with_dict:
+#   - "{{ ansible_net_interfaces }}"
+#  ignore_errors: yes   
+
+- name: Show only elements containing ".name"
   debug:
-    var: item.key
-  when: item.value.description is search("grpcl_1")
-  with_dict:
-   - "{{ ansible_net_interfaces }}"
-  ignore_errors: yes   
+    msg: "{{ ansible_net_interfaces | dict2items | selectattr('key', 'match', 'grpcl_1) | list | items2dict }}"
+
 ...
