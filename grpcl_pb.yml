@@ -1,0 +1,8 @@
+---
+- name: Configuration of Vlan on all Devices
+  gather_facts: no
+  hosts: all
+  tasks:
+    - name: add/remove of Vlan
+      include: "./tasks/grpcl_worker.yml"
+...
