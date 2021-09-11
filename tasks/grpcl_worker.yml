@@ -20,6 +20,6 @@
   debug:
     msg: "{{ item.name }}"
   with_dict:
-   - "{{ ansible_net_interfaces }}"
+   - "{{ ansible_network_resources }}"
     
 ...
