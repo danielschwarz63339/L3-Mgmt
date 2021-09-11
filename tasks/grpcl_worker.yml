@@ -17,6 +17,6 @@
   debug:
     msg: "{{ ansible_net_image }}"
   #when: item.description is {{ Survey_Grpcl }}
-  with_dict:
-   - "{{ ansible_net_interfaces }}"
+  #with_dict:
+  # - "{{ ansible_net_interfaces }}"
 ...
