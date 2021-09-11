@@ -16,7 +16,7 @@
     msg: "{{ ansible_facts }}"
 
 - debug: 
-    msg: "{{ ansible_facts['net_interfaces_list'] }}"
+    msg: "{{ ansible_facts['net_interfaces'] }}"
 
 - debug: 
     var: ansible_facts.keys()
