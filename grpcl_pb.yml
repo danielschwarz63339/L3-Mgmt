@@ -1,8 +1,15 @@
 ---
-- name: Configuration of Vlan on all Devices
+- name: Configuration of R1
   gather_facts: no
-  hosts: all
+  hosts: SW1
   tasks:
-    - name: add/remove of Vlan
-      include: "./tasks/grpcl_worker.yml"
+    - name: R1 Config (incl. L3 Interface)
+      include: "./tasks/r1_l3.yml"
+
+- name: Configuration of R2
+  gather_facts: no
+  hosts: SW2
+  tasks:
+    - name: R2 Config (incl. L3 Interface)
+      include: "./tasks/r2_l3.yml"
 ...
