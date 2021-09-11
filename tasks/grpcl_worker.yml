@@ -30,4 +30,5 @@
   when: item.value.duplex is search("auto")
   with_dict:
    - "{{ ansible_net_interfaces }}"
+  ignore_errors: yes   
 ...
