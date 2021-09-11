@@ -8,9 +8,6 @@
 - name: Gather Facts
   nxos_facts:
     gather_subset:
-    - '!all'
-    - '!min'
-    gather_network_resources:
     - interfaces
   register: output
 
