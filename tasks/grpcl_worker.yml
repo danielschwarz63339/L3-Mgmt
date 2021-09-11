@@ -21,6 +21,9 @@
 - debug: 
     var: ansible_facts.keys()
 
+- debug: 
+    var: output
+
 - name: Display Interfaces
   debug:
     msg: "{{ ansible_net_interfaces['description'] }}"
