@@ -18,7 +18,7 @@
 
 - name: Display Interfaces
   debug:
-    msg: "{{ item.name }}"
+    msg: "{{ interfaces.name }}"
   with_dict:
    - "{{ ansible_network_resources }}"
     
