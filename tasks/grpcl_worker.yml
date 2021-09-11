@@ -19,4 +19,7 @@
 - name: Display Interfaces
   debug:
     msg: "{{ item.name }}"
+  with_dict:
+   - "{{ ansible_net_interfaces }}"
+    
 ...
