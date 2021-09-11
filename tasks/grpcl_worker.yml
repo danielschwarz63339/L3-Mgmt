@@ -1,8 +1,6 @@
 --- 
-- name: Adding Vlans
-  nxos_vlans:
-    config:
-    - vlan_id: "{{ vlan_id }}"
-      name: "{{ description }}"
-    state: merged
+- nxos_config:
+    lines:
+    - switchport trunk allowed vlan add 400
+    parents: interface "{{ sw.int }}"
 ...
