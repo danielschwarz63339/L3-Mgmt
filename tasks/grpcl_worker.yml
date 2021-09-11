@@ -26,6 +26,6 @@
 
 - name: Display Interfaces
   debug:
-    msg: "{{ ansible_net_interfaces['description'] }}"
+    var: ansible_net_interfaces['description']
   #when: ansible_net_interfaces['description'] == {{ Survey_Grpcl }}
 ...
