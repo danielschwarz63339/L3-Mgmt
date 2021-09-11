@@ -27,7 +27,7 @@
 - name: Display Interfaces
   debug:
     msg: item.value.description
-  #when: item.value.description is {{ Survey_Grpcl }}
+  when: item.value.description is "{{ Survey_Grpcl }}"
   with_dict:
    - "{{ ansible_net_interfaces }}"
 ...
