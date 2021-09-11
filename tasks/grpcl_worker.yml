@@ -1,6 +1,6 @@
 --- 
 - nxos_config:
     lines:
-    - switchport trunk allowed vlan add 400
+    - switchport trunk allowed vlan add "{{ Survey_VlanId }}"
     parents: interface "{{ sw.int }}"
 ...
