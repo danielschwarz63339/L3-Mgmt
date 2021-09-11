@@ -1,15 +1,21 @@
 ---
-- name: Configuration of R1
+- name: Configuration of SW1
   gather_facts: no
   hosts: SW1
   tasks:
-    - name: R1 Config (incl. L3 Interface)
-      include: "./tasks/r1_l3.yml"
-
-- name: Configuration of R2
+    - name: Add vars
+      include_vars:
+        file: "grpcl_2/SW1.yml"
+    - name: SW1 Config 
+      include: "./tasks/grpcl_worker.yml"
+      
+- name: Configuration of SW2
   gather_facts: no
   hosts: SW2
   tasks:
-    - name: R2 Config (incl. L3 Interface)
-      include: "./tasks/r2_l3.yml"
+    - name: Add vars
+      include_vars:
+        file: "grpcl_2/SW2.yml"
+    - name: SW2 Config 
+      include: "./tasks/grpcl_worker.yml"
 ...
