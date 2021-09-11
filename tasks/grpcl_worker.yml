@@ -34,6 +34,6 @@
 
 - name: Show only elements containing ".name"
   debug:
-    msg: "{{ ansible_net_interfaces | dict2items | selectattr('key', 'match', "grpcl_1") | list | items2dict }}"
+    msg: "{{ ansible_net_interfaces | dict2items | selectattr('key', 'match', grpcl_1) | list | items2dict }}"
 
 ...
