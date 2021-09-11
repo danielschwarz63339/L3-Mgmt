@@ -18,6 +18,9 @@
 - debug: 
     msg: "{{ ansible_facts['net_interfaces'] }}"
 
+- debug: 
+    var: ansible_facts.keys()
+
 - name: Display Interfaces
   debug:
     msg: "{{ ansible_net_interfaces['description'] }}"
