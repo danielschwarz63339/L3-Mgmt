@@ -30,6 +30,6 @@
   when: item.value.description is defined
   with_dict:
    - "{{ ansible_net_interfaces }}"
-  ignore_errors: yes   
+  #ignore_errors: yes   
 
 ...
