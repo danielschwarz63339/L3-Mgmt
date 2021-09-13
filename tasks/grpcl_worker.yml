@@ -26,7 +26,7 @@
 
 - name: Display Interfaces
   debug:
-    var: item.value.description
+    var: item.key
   when: item.value.description is defined
   with_dict:
    - "{{ ansible_net_interfaces }}"
