@@ -27,7 +27,7 @@
 - name: Display Interfaces
   debug:
     var: item.value.description
-  #when: item.value.description is search("grpcl_1")
+  when: item.value.description is defined
   with_dict:
    - "{{ ansible_net_interfaces }}"
   ignore_errors: yes   
