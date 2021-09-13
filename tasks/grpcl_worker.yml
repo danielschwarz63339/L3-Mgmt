@@ -33,6 +33,7 @@
   #ignore_errors: yes   
 
 - name: Register Interfaces
+  command: echo {{ item.key }}
   register: result
   when: item.value.description is defined
   with_dict:
