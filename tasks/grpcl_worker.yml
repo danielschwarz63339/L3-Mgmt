@@ -15,9 +15,8 @@
 #- debug: 
 #    msg: "{{ ansible_facts }}"
 
-- debug: 
-    msg: "{{ ansible_facts['net_interfaces']['item.value.description'] }}"
-    when: item.value.description is defined
+#- debug: 
+#    msg: "{{ ansible_facts['net_interfaces'] }}"
 
 # debug: 
 #   var: ansible_facts.keys()
@@ -33,14 +32,14 @@
 #  - "{{ ansible_net_interfaces }}"
 # #ignore_errors: yes   
 
-# name: Register Interfaces
-# command: echo {{ item.key }}
-# register: result
-# when: item.value.description is defined
-# with_dict:
-#  - "{{ ansible_net_interfaces }}"
-# #ignore_errors: yes   
+ name: Register Interfaces
+ command: echo {{ item.key }}
+ register: result
+ when: item.value.description is defined
+ with_dict:
+  - "{{ ansible_net_interfaces }}"
+ #ignore_errors: yes   
 
-# debug: 
-#   var: item.value.description
+ debug: 
+   var: result
 ...
