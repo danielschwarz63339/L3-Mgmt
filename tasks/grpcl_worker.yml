@@ -32,14 +32,14 @@
 #  - "{{ ansible_net_interfaces }}"
 # #ignore_errors: yes   
 
- name: Register Interfaces
- command: echo {{ item.key }}
- register: result
- when: item.value.description is defined
- with_dict:
-  - "{{ ansible_net_interfaces }}"
- #ignore_errors: yes   
+- name: Register Interfaces
+  command: echo {{ item.key }}
+  register: result
+  when: item.value.description is defined
+  with_dict:
+   - "{{ ansible_net_interfaces }}"
+  #ignore_errors: yes   
 
- debug: 
-   var: result
+- debug: 
+    var: result
 ...
