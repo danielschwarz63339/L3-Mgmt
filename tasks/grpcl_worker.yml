@@ -17,6 +17,7 @@
 
 - debug: 
     msg: "{{ ansible_facts['net_interfaces']['item.value.description'] }}"
+    when: item.value.description is defined
 
 # debug: 
 #   var: ansible_facts.keys()
