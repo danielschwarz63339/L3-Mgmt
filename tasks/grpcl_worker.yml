@@ -12,34 +12,34 @@
   register: output
 
 # Print facts on screen #          
-- debug: 
-    msg: "{{ ansible_facts }}"
+#- debug: 
+#    msg: "{{ ansible_facts }}"
 
 - debug: 
-    msg: "{{ ansible_facts['net_interfaces'] }}"
+    msg: "{{ ansible_facts['net_interfaces']['item.value.description'] }}"
 
-- debug: 
-    var: ansible_facts.keys()
+# debug: 
+#   var: ansible_facts.keys()
 
-- debug: 
-    var: output
+# debug: 
+#   var: output
 
-- name: Display Interfaces
-  debug:
-    var: item.key
-  when: item.value.description is defined
-  with_dict:
-   - "{{ ansible_net_interfaces }}"
-  #ignore_errors: yes   
+# name: Display Interfaces
+# debug:
+#   var: item.key
+# when: item.value.description is defined
+# with_dict:
+#  - "{{ ansible_net_interfaces }}"
+# #ignore_errors: yes   
 
-- name: Register Interfaces
-  command: echo {{ item.key }}
-  register: result
-  when: item.value.description is defined
-  with_dict:
-   - "{{ ansible_net_interfaces }}"
-  #ignore_errors: yes   
+# name: Register Interfaces
+# command: echo {{ item.key }}
+# register: result
+# when: item.value.description is defined
+# with_dict:
+#  - "{{ ansible_net_interfaces }}"
+# #ignore_errors: yes   
 
-- debug: 
-    var: item.value.description
+# debug: 
+#   var: item.value.description
 ...
