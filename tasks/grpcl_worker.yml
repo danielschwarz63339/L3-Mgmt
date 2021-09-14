@@ -41,5 +41,5 @@
   #ignore_errors: yes   
 
 - debug: 
-    var: result
+    var: item.value.description
 ...
