@@ -12,6 +12,6 @@
           redistribute:
             - protocol: static
               route_map: RMAP_{{ survey_vrf }}_STATIC
-            - protocol: connected
+            - protocol: direct
               route_map: RMAP_{{ survey_vrf }}_CONNECTED
 ...
