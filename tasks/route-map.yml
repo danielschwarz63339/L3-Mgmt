@@ -2,18 +2,12 @@
 - name: Merge the provided configuration with the existing running configuration
   nxos_route_maps:
     config:
-      - route_map: rmap1
+      - route_map: RMAP_{{ survey_vrf}}_STATIC
         entries:
           - sequence: 10
             action: permit
-            description: rmap1-10-permit
             match:
-              ip:
-                address:
-                  access_list: acl_1
-              as_path: Allow40
-              as_number:
-                asn: 65564
+              tags: {{ survey_vrf}}
 
     state: merged
 ...
