@@ -8,7 +8,7 @@
           safi: unicast
           vrf: '{{ survey_vrf }}'
           default_information:
-            originate: True
+            originate: "{{ survey_default_orig }}"
           redistribute:
             - protocol: direct
               route_map: RMAP_{{ survey_vrf }}_CONNECTED
@@ -25,7 +25,7 @@
           safi: unicast
           vrf: '{{ survey_vrf }}'
           default_information:
-            originate: True
+            originate: "{{ survey_default_orig }}"
           redistribute:
             - protocol: direct
               route_map: RMAP_{{ survey_vrf }}_CONNECTED
