@@ -1,0 +1,10 @@
+---
+- name: Depoloy vrf
+  gather_facts: no
+  hosts: router
+  tasks:
+    - name: Create vrf
+      include: "./tasks/vrf.yml"
+    - name: Create route-map
+      include: "./tasks/route-map.yml"
+...
