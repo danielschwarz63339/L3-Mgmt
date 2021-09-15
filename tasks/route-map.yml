@@ -7,6 +7,6 @@
           - sequence: 10
             action: permit
             match:
-              tags: {{ survey_vrf }}
+              tags: "{{ survey_vrf }}"
   state: merged
 ...
