@@ -1,6 +1,5 @@
 --- 
-- name: Add RMAP STATIC
-  nxos_route_maps:
+- nxos_route_maps:
     config:
       - route_map: RMAP_{{ survey_vrf }}_STATIC
         entries:
