@@ -5,6 +5,6 @@
   tasks:
     - name: Create vrf
       include: "./tasks/vrf.yml"
-    - name: Create route-map
-      include: "./tasks/route-map.yml"
+    #- name: Create route-map
+    #  include: "./tasks/route-map.yml"
 ...
