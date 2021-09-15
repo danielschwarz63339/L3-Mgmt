@@ -29,5 +29,5 @@
           redistribute:
             - protocol: direct
               route_map: RMAP_{{ survey_vrf }}_CONNECTED
-  when: not survey_redist_static|bool  
+  when: survey_redist_static|bool != true
 ...
