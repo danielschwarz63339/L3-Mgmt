@@ -1,5 +1,5 @@
 --- 
-- name: Merge the provided configuration with the existing running configuration
+- name: Configure route-maps
   nxos_route_maps:
     config:
       - route_map: RMAP_{{ survey_vrf}}_STATIC
