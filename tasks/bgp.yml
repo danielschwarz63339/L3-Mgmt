@@ -1,0 +1,17 @@
+---
+- name: Merge the provided configuration with the existing running configuration
+  nxos_bgp_address_family:
+    config:
+      as_number: 65400
+      address_family:
+        - afi: ipv4
+          safi: unicast
+          vrf: "{{ survey_vrf }}"
+          default_information:
+            originate: True
+          redistribute:
+            - protocol: static
+              route_map: RMAP_{{ survey_vrf }}_STATIC
+            - protocol: connected
+              route_map: RMAP_{{ survey_vrf }}_CONNECTED
+...
