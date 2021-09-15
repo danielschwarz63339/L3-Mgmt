@@ -1,7 +1,13 @@
 --- 
-- nxos_config:
-    lines:
-    - switchport trunk allowed vlan {{ Survey_Action }} {{ Survey_VlanId }}
-    parents: interface {{ item.int }}
-  with_items: "{{ sw }}"
-  ...
+- nxos_vrf:
+    name: {{ survey_vrf_name }}
+    rd: 65400:{{ survey_vrf }}
+    state: present
+    
+- nxos_vrf_af:
+    vrf: {{ survey_vrf }}
+    afi: ipv4
+    route_targets:
+    - rt: 65400:{{ survey_vrf }}
+      direction: both
+...
