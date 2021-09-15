@@ -1,0 +1,12 @@
+--- 
+- name: Add RMAP STATIC
+  nxos_route_maps:
+    config:
+      - route_map: RMAP_{{ survey_vrf }}_STATIC
+        entries:
+          - sequence: 10
+            action: permit
+            match:
+              tags: {{ survey_vrf }}
+  state: merged
+...
