@@ -2,6 +2,8 @@
 - name: Depoloy vrf
   gather_facts: no
   hosts: router
+  collections: 
+    - cisco.nxos    
   tasks:
     - name: Create vrf
       include: "./tasks/vrf.yml"
