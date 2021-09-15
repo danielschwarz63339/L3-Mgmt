@@ -1,6 +1,6 @@
 --- 
 - name: Merge the provided configuration with the existing running configuration
-  cisco.nxos.nxos_route_maps:
+  nxos_route_maps:
     config:
       - route_map: rmap1
         entries:
