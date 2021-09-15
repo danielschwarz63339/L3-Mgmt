@@ -1,5 +1,5 @@
 ---
-- name: Create BGP session incl. redistribution of connected an static
+- name: Create BGP session incl. redistribution of connected and static
   nxos_bgp_address_family:
     config:
       as_number: 65400
@@ -16,7 +16,7 @@
               route_map: RMAP_{{ survey_vrf }}_STATIC
   when: survey_redist_static|bool
 
-- name: Create BGP session incl. redistribution of connected
+- name: Create BGP session incl. redistribution of connected only
   nxos_bgp_address_family:
     config:
       as_number: 65400
