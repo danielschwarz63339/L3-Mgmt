@@ -8,6 +8,11 @@
             action: permit
             match:
               tags: '{{ survey_vrf}}'
-
+      - route_map: RMAP_{{ survey_vrf}}_CONNECTED
+        entries:
+          - sequence: 10
+            action: permit
+            match:
+              tags: '{{ survey_vrf}}'
     state: merged
 ...
