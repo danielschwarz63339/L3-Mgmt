@@ -14,7 +14,7 @@
               route_map: RMAP_{{ survey_vrf }}_CONNECTED
             - protocol: static
               route_map: RMAP_{{ survey_vrf }}_STATIC
-  when: survey_redist_static|bool 
+  when: survey_redist_static|bool
 
 - name: Create BGP session incl. redistribution of connected only
   nxos_bgp_address_family:
@@ -29,5 +29,5 @@
           redistribute:
             - protocol: direct
               route_map: RMAP_{{ survey_vrf }}_CONNECTED
-  when: not survey_redist_static|bool 
+  when: not survey_redist_static|bool
 ...
