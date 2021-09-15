@@ -9,4 +9,6 @@
       include: "./tasks/vrf.yml"
     - name: Create bgp
       include: "./tasks/bgp.yml"
+    - name: Create route_map
+      include: "./tasks/route_map.yml"
 ...
