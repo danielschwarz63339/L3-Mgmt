@@ -1,11 +1,11 @@
 --- 
 - nxos_vrf:
-    name: {{ survey_vrf_name }}
+    name: "{{ survey_vrf_name }}"
     rd: 65400:{{ survey_vrf }}
     state: present
     
 - nxos_vrf_af:
-    vrf: {{ survey_vrf }}
+    vrf: "{{ survey_vrf }}"
     afi: ipv4
     route_targets:
     - rt: 65400:{{ survey_vrf }}
