@@ -1,5 +1,5 @@
 --- 
-- nxos_route_maps:
+- cisco.nxos.nxos_route_maps:
     config:
       - route_map: RMAP_{{ survey_vrf }}_STATIC
         entries:
