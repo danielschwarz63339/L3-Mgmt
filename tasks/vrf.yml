@@ -1,7 +1,8 @@
 --- 
 - nxos_vrf:
-    name: "{{ survey_vrf_name }}"
+    name: "{{ survey_vrf }}"
     rd: 65400:{{ survey_vrf }}
+    description: "{{ survey_vrf_name }}"
     state: present
     
 - nxos_vrf_af:
