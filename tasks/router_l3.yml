@@ -17,7 +17,7 @@
   nxos_hsrp:
     group: "{{ ((vlan_id % 2)*-1)+2 }}"
     vip: "{{ network_ip | ipmath(1) }}"
-    priority: {% if "R2" in inventory_hostname %}'250'{% else %}'200'{% endif %}    
+    priority: "{% if R2 in inventory_hostname %}'250'{% else %}'200'{% endif %}"
     interface: Vlan{{ vlan_id }}
     preempt: enabled
     version: '2'
