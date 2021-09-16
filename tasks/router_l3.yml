@@ -21,13 +21,23 @@
     preempt: enabled
     version: '2'
   when: inventory_hostname == "R2"
-#
-#- name: Configure Preempt delay
-#  nxos_config:
-#    lines:
-#    - preempt delay minimum 120
-#    parents: 
-#    - interface Vlan{{ vlan_id }}
-#    - hsrp {{ ((vlan_id % 2)*-1)+2 }}
-#  when: inventory_hostname == "R2"
+
+- name: Configure HSRP
+  nxos_hsrp:
+    group: "{{ ((vlan_id % 2)*-1)+2 }}"
+    vip: "{{ network_ip | ipmath(1) }}"
+    priority: '200' 
+    interface: Vlan{{ vlan_id }}
+    preempt: disabled
+    version: '2'
+  when: inventory_hostname == "R1"
+
+- name: Configure Preempt delay
+  nxos_config:
+    lines:
+    - preempt delay minimum 120
+    parents: 
+    - interface Vlan{{ vlan_id }}
+    - hsrp {{ ((vlan_id % 2)*-1)+2 }}
+  when: inventory_hostname == "R2"
 ...
