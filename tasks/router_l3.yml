@@ -1,4 +1,8 @@
 --- 
+- name: Print hostname
+  debug:
+    var: inventory_hostname
+
 - name: Configure L3 Interface
   nxos_config:
     lines:
