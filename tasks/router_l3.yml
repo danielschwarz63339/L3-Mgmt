@@ -4,7 +4,7 @@
     lines:
     - description {{ description }}
     - vrf member {{ vrf }}
-    - ip address {{ network_ip | ipmath(5) if inventory_hostname == "R1"   elif inventory_hostname == "R2" network_ip | ipmath(6) }}{{ prefix }} tag {{ vrf }}
+    - ip address {{ network_ip | ipmath(5) if inventory_hostname == "R1"   else network_ip | ipmath(6) }}{{ prefix }} tag {{ vrf }}
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
 
