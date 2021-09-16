@@ -1,6 +1,5 @@
 --- 
 - name: Configure L3 Interface
-  gather_facts: yes
   nxos_config:
     lines:
     - description {{ description }}
