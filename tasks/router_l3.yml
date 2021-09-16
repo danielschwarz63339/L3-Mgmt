@@ -15,7 +15,7 @@
     vip: "{{ network_ip | ipmath(1) }}"
     priority: "{{ '250' if inventory_hostnames == R2 else '200' }}"
     interface: Vlan{{ vlan_id }}
-    preempt: "{{ "enabled" if inventory_hostnames == R2 else "disabled" }}"
+    preempt: "{{ enabled if inventory_hostnames == R2 else disabled }}"
     version: '2'
   #loop: "{{ ansible_play_batch }}"
 
