@@ -12,10 +12,12 @@
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
 
-- name: Configure HSRP
-  vars:
+- name: Set Facts
+  set_fact:
     high = '250'
     low = '200'
+    
+- name: Configure HSRP
   nxos_hsrp:
     group: "{{ ((vlan_id % 2)*-1)+2 }}"
     vip: "{{ network_ip | ipmath(1) }}"
