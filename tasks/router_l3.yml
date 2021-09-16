@@ -13,26 +13,26 @@
     high = '250'
     low = '200'
     
-- name: Configure HSRP
+- name: Configure HSRP Active
   nxos_hsrp:
     group: "{{ ((vlan_id % 2)*-1)+2 }}"
     vip: "{{ network_ip | ipmath(1) }}"
-    priority: "{% if R2 in inventory_hostname %}'250'{% else %}'200'{% endif %}"
+    priority: '250'
     interface: Vlan{{ vlan_id }}
     preempt: enabled
     version: '2'
   when: inventory_hostname == "R2" 
   #when: inventory_hostname == "R2" or inventory_hostname == "R1"
 
-#- name: Configure HSRP
-#  nxos_hsrp:
-#    group: "{{ ((vlan_id % 2)*-1)+2 }}"
-#    vip: "{{ network_ip | ipmath(1) }}"
-#    priority: '200' 
-#    interface: Vlan{{ vlan_id }}
-#    preempt: disabled
-#    version: '2'
-#  when: inventory_hostname == "R1"
+- name: Configure HSRP Standby
+  nxos_hsrp:
+    group: "{{ ((vlan_id % 2)*-1)+2 }}"
+    vip: "{{ network_ip | ipmath(1) }}"
+    priority: '200' 
+    interface: Vlan{{ vlan_id }}
+    preempt: disabled
+    version: '2'
+  when: inventory_hostname == "R1"
 
 - name: Configure Preempt delay
   nxos_config:
