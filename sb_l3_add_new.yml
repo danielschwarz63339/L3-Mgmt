@@ -7,8 +7,12 @@
       include: "./tasks/sb_l2.yml"
 
 - name: Configuration of Routers
+  gather_facts: yes
   hosts: router
   tasks:
+    - name: Print hostname
+      debug:
+        var: inventory_hostname
     - name: Router Config (incl. L3 Interface)
       include: "./tasks/router_l3.yml"
 ...
