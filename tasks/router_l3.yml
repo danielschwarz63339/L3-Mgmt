@@ -23,15 +23,15 @@
   when: inventory_hostname == "R2" 
   #when: inventory_hostname == "R2" or inventory_hostname == "R1"
 
-- name: Configure HSRP
-  nxos_hsrp:
-    group: "{{ ((vlan_id % 2)*-1)+2 }}"
-    vip: "{{ network_ip | ipmath(1) }}"
-    priority: '200' 
-    interface: Vlan{{ vlan_id }}
-    preempt: disabled
-    version: '2'
-  when: inventory_hostname == "R1"
+#- name: Configure HSRP
+#  nxos_hsrp:
+#    group: "{{ ((vlan_id % 2)*-1)+2 }}"
+#    vip: "{{ network_ip | ipmath(1) }}"
+#    priority: '200' 
+#    interface: Vlan{{ vlan_id }}
+#    preempt: disabled
+#    version: '2'
+#  when: inventory_hostname == "R1"
 
 - name: Configure Preempt delay
   nxos_config:
