@@ -28,4 +28,3 @@
     - hsrp {{ ((vlan_id % 2)*-1)+2 }}
   when: inventory_hostname == R2
 ...
-"{{ network_ip | ipmath(5) if inventory_hostnames == R1 else network_ip | ipmath(6) }}"
