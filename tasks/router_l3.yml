@@ -13,10 +13,13 @@
     parents: interface Vlan{{ vlan_id }}
 
 - name: Configure HSRP
+  vars:
+    high = '250'
+    low = '200'
   nxos_hsrp:
     group: "{{ ((vlan_id % 2)*-1)+2 }}"
     vip: "{{ network_ip | ipmath(1) }}"
-    priority: 250 if inventory_hostname == "R2" else 200
+    priority: "{{ high if inventory_hostname == "R2" else low }}"
     interface: Vlan{{ vlan_id }}
     preempt: enabled
     version: '2'
