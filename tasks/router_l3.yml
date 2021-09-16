@@ -8,7 +8,7 @@
     lines:
     - description {{ description }}
     - vrf member {{ vrf }}
-    - ip address {{ network_ip | ipmath(5) if ansible_net__hostname == R1 else network_ip | ipmath(6) }}{{ prefix }} tag {{ vrf }}
+    - ip address {{ network_ip | ipmath(5) if inventory_hostname == "R1" else network_ip | ipmath(6) }}{{ prefix }} tag {{ vrf }}
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
   #loop: "{{ ansible_play_batch }}"
@@ -17,9 +17,9 @@
   nxos_hsrp:
     group: "{{ ((vlan_id % 2)*-1)+2 }}"
     vip: "{{ network_ip | ipmath(1) }}"
-    priority: "{{ '250' if ansible_net__hostname == R2 else '200' }}"
+    priority: "{{ '250' if inventory_hostname == "R2" else '200' }}"
     interface: Vlan{{ vlan_id }}
-    preempt: "{{ enabled if ansible_net__hostname == R2 else disabled }}"
+    preempt: "{{ enabled if inventory_hostname == "R2" else disabled }}"
     version: '2'
   #loop: "{{ ansible_play_batch }}"
 
@@ -30,5 +30,5 @@
     parents: 
     - interface Vlan{{ vlan_id }}
     - hsrp {{ ((vlan_id % 2)*-1)+2 }}
-  when: ansible_net__hostname == R2
+  when: inventory_hostname == "R2"
 ...
