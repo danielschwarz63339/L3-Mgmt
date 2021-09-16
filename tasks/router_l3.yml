@@ -26,5 +26,5 @@
     parents: 
     - interface Vlan{{ vlan_id }}
     - hsrp {{ ((vlan_id % 2)*-1)+2 }}
-  when: inventory_hostnames == R2
+  when: inventory_hostname == R2
 ...
