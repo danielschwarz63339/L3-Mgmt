@@ -7,7 +7,7 @@
       include: "./tasks/sb_l2.yml"
 
 - name: Configuration of Routers
-  gather_facts: no
+  gather_facts: yes
   hosts: router
   tasks:
     - name: Router Config (incl. L3 Interface)
