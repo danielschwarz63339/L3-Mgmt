@@ -20,7 +20,7 @@
     interface: Vlan{{ vlan_id }}
     preempt: enabled
     version: '2'
-  when: inventory_hostname == "R2"
+  when: inventory_hostname == "R2" or inventory_hostname == "R1"
 
 - name: Configure HSRP
   nxos_hsrp:
