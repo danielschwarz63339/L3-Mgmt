@@ -8,13 +8,15 @@
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
 
-#"{% if Survey_Vrf =='1399' %}ip router eigrp GRTLEAK{% else %}!{% endif %}"
+
 
 - name: Configure HSRP Active
   nxos_hsrp:
     group: "{{ ((vlan_id % 2)*-1)+2 }}"
     vip: "{{ network_ip | ipmath(1) }}"
-    priority: '250'
+    priority: "{% if inventory_hostname =="R1" %}'250'
+               {% elif inventory_hostname =="R2" %}'200'
+               {% else %}'250'{% endif %}"
     interface: Vlan{{ vlan_id }}
     preempt: enabled
     version: '2'
