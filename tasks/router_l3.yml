@@ -8,6 +8,8 @@
     - no shutdown
     parents: interface Vlan{{ vlan_id }}
 
+#"{% if Survey_Vrf =='1399' %}ip router eigrp GRTLEAK{% else %}!{% endif %}"
+
 - name: Configure HSRP Active
   nxos_hsrp:
     group: "{{ ((vlan_id % 2)*-1)+2 }}"
