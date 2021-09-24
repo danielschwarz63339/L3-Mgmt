@@ -1,0 +1,28 @@
+---
+- name: configure interface settings
+  ios_config:
+    lines:
+    - description {{ description }}
+    - encapsulation dot1Q {{ vlan_id }}
+    - ip address {{ network_ip | ipmath(2) }}
+    - standby version 2
+    - standby {{ ((vlan_id % 2)*-1)+2 }} ip {{ network_ip | ipmath(1) }}
+    - standby {{ ((vlan_id % 2)*-1)+2 }} priority 250
+    - standby {{ ((vlan_id % 2)*-1)+2 }} preempt delay minimum 120
+    - standby {{ ((vlan_id % 2)*-1)+2 }} authentication md5 key-string HSRP$${{ vlan_id }}
+    parents: interface GigabitEthernet1.{{ vlan_id }}
+  when: inventory_hostname == "CSR1"     
+
+- name: configure interface settings
+  ios_config:
+    lines:
+    - description {{ description }}
+    - encapsulation dot1Q {{ vlan_id }}
+    - ip address {{ network_ip | ipmath(2) }}
+    - standby version 2
+    - standby {{ ((vlan_id % 2)*-1)+2 }} ip {{ network_ip | ipmath(1) }}
+    - standby {{ ((vlan_id % 2)*-1)+2 }} priority 200
+    - standby {{ ((vlan_id % 2)*-1)+2 }} authentication md5 key-string HSRP$${{ vlan_id }}
+    parents: interface GigabitEthernet1.{{ vlan_id }}
+  when: inventory_hostname == "CSR2"     
+...
