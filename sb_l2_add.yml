@@ -1,7 +1,7 @@
 ---
 - name: Configuration of Vlan on all Devices
   gather_facts: no
-  hosts: all
+  hosts: nxos
   tasks:
     - name: Configuration of Vlan
       include: "./tasks/sb_l2.yml"
