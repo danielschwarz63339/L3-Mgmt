@@ -4,7 +4,7 @@
     lines:
     - description {{ description }}
     - encapsulation dot1Q {{ vlan_id }}
-    - ip address {{ network_ip | ipmath(2) }}
+    - ip address {{ network_ip | ipmath(2) }} {{ mask }}
     - standby version 2
     - standby {{ ((vlan_id % 2)*-1)+2 }} ip {{ network_ip | ipmath(1) }}
     - standby {{ ((vlan_id % 2)*-1)+2 }} priority 250
@@ -18,7 +18,7 @@
     lines:
     - description {{ description }}
     - encapsulation dot1Q {{ vlan_id }}
-    - ip address {{ network_ip | ipmath(3) }}
+    - ip address {{ network_ip | ipmath(3) }} {{ mask }}
     - standby version 2
     - standby {{ ((vlan_id % 2)*-1)+2 }} ip {{ network_ip | ipmath(1) }}
     - standby {{ ((vlan_id % 2)*-1)+2 }} priority 200
