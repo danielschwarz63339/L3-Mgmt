@@ -3,7 +3,7 @@
 - name: Add static Route
   collections: 
     - cisco.ios  
-  gather_facts: no
+  gather_facts: yes
   hosts: ios_router
   tasks:
     - name: Create Interface
