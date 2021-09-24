@@ -8,6 +8,6 @@
   tasks:
     - name: Create Interface
       include: "./tasks/int_ios.yml"
-    - name: Config of static routes
-      include: "./tasks/static_ios.yml"      
+    #- name: Config of static routes
+    #  include: "./tasks/static_ios.yml"      
 ...
