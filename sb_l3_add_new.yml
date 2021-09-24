@@ -1,14 +1,14 @@
 ---
 - name: Configuration of Vlan on all Devices
   gather_facts: no
-  hosts: all
+  hosts: nxos
   tasks:
     - name: Configuration of Vlan
       include: "./tasks/sb_l2.yml"
 
 - name: Configuration of Routers
   gather_facts: yes
-  hosts: router
+  hosts: nxos_router
   tasks:
     - name: Router Config (incl. L3 Interface)
       include: "./tasks/router_l3.yml"
