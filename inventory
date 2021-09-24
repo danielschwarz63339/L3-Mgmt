@@ -1,7 +1,7 @@
 ---
 all:
   children:
-    nxos
+    nxos:
       children:
         nxos_router:
           hosts:
@@ -14,11 +14,11 @@ all:
             SW1:
               ansible_host: 192.168.0.182
             SW2:
-              ansible_host: 192.168.0.183        
+              ansible_host: 192.168.0.183
         vars:
           ansible_network_os: nxos
           ansible_connection: network_cli
-    ios
+    ios:
       children:
         ios_router:
           hosts:
@@ -31,7 +31,7 @@ all:
             CSW1:
               ansible_host: 192.168.0.186
             CSW2:
-              ansible_host: 192.168.0.187        
+              ansible_host: 192.168.0.187
         vars:
           ansible_network_os: ios
           ansible_connection: network_cli
