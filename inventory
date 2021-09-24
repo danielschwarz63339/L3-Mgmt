@@ -9,15 +9,18 @@ all:
               ansible_host: 192.168.0.180
             R2:
               ansible_host: 192.168.0.181
+          vars:
+            ansible_network_os: nxos
+            ansible_connection: network_cli
         nxos_switches:
           hosts:
             SW1:
               ansible_host: 192.168.0.182
             SW2:
               ansible_host: 192.168.0.183
-    vars:
-      ansible_network_os: nxos
-      ansible_connection: network_cli
+          vars:
+            ansible_network_os: nxos
+            ansible_connection: network_cli
     ios:
       children:
         ios_router:
@@ -26,13 +29,16 @@ all:
               ansible_host: 192.168.0.184
             CSR2:
               ansible_host: 192.168.0.185
+          vars:
+            ansible_network_os: ios
+            ansible_connection: network_cli
         ios_switches:
           hosts:
             CSW1:
               ansible_host: 192.168.0.186
             CSW2:
               ansible_host: 192.168.0.187
-    vars:
-      ansible_network_os: ios
-      ansible_connection: network_cli
+          vars:
+            ansible_network_os: ios
+            ansible_connection: network_cli
 ...
