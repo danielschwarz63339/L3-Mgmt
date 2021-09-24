@@ -1,0 +1,10 @@
+---
+- name: Add static Route
+  collections: 
+    - cisco.ios  
+  gather_facts: no
+  hosts: ios_router
+  tasks:
+    - name: Config of static routes
+      include: "./tasks/static_ios.yml"
+...
