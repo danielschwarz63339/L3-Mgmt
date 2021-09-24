@@ -1,7 +1,7 @@
 ---
 - name: Removing Vlans
   gather_facts: no
-  hosts: all
+  hosts: nxos
   tasks:
     - nxos_vlans:
         config:
