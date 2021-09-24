@@ -1,7 +1,7 @@
 ---
 - name: Remove L3 Interface on all Routers
   gather_facts: no
-  hosts: router
+  hosts: nxos_router
   tasks:
     - nxos_config:
         lines:
@@ -9,7 +9,7 @@
     
 - name: Remove Vlans
   gather_facts: no
-  hosts: all
+  hosts: nxos
   tasks:
     - name: R2 Config (incl. L3 Interface)
       include: "./tasks/sb_l2_remove.yml"
