@@ -3,7 +3,7 @@
   collections: 
     - cisco.nxos  
   gather_facts: no
-  hosts: router
+  hosts: nxos_router
   tasks:
     - name: Config of static routes
       include: "./tasks/static.yml"
